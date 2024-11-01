@@ -48,12 +48,27 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Masukkan Angka Kedua");
 
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
             }
         });
 
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+        });
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -173,7 +188,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
             int angka1 = Integer.parseInt(jTextField1.getText());
             int angka2 = Integer.parseInt(jTextField2.getText());
             int hasil = angka1 + angka2;
-            jTextField3.setText("Hasil: " + hasil);
+            jTextField3.setText(String.valueOf(hasil));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Masukkan angka yang valid");
         }
@@ -192,10 +207,22 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
           char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) { 
+          if (!Character.isDigit(c)) { 
             evt.consume(); 
         }
     }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+       jTextField1.setText("");
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+       jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2FocusGained
 
     /**
      * @param args the command line arguments
